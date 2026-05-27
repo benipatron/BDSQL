@@ -40,6 +40,27 @@ SELECT * FROM clientes WHERE categoria = 100;
 
 
 -- ==========================================
+-- AVISO: CONSULTAS CON JOIN OMITIDAS 
+-- (Indicación de la profesora: la BDVentas no tiene relaciones)
+-- ==========================================
+
+
+-- ==========================================
+-- 2 CONSULTAS COMPLEJAS (Libre)
+-- ==========================================
+-- 11. Mostrar cuántos clientes atiende cada comercial (Agrupación / COUNT)
+SELECT id_comercial, COUNT(*) AS numero_de_clientes 
+FROM clientes 
+GROUP BY id_comercial;
+
+-- 12. Mostrar los datos del comercial que tiene la comisión más alta de la empresa (Subconsulta)
+SELECT * FROM comercial 
+WHERE comision = (SELECT MAX(comision) FROM comercial);
+-- 10. Ver clientes que tienen una categoría específica (ejemplo: categoría 100)
+SELECT * FROM clientes WHERE categoria = 100;
+
+
+-- ==========================================
 -- 3 CONSULTAS CON JOIN
 -- ==========================================
 -- 11. Ver el nombre del cliente junto con el nombre del comercial que le atiende
